@@ -4,6 +4,7 @@ import PizZip from "pizzip";
 import { saveAs } from "file-saver";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import JSZip from "jszip";
 
 // Global state
 let studentData = [];
@@ -224,6 +225,11 @@ async function generateCertificates() {
   let successCount = 0;
   const totalStudents = studentData.length;
 
+  // Create ZIP file for batch download
+  const zip = new JSZip();
+  const docxFolder = zip.folder("certificates_docx");
+  const pdfFolder = zip.folder("certificates_pdf");
+
   try {
     for (let i = 0; i < studentData.length; i++) {
       const student = studentData[i];
@@ -237,11 +243,15 @@ async function generateCertificates() {
 
       // Generate certificate based on format
       if (format === "docx" || format === "both") {
-        await generateDocxCertificate(student);
+        const docxBlob = await generateDocxCertificateBlob(student);
+        const fileName = `${sanitizeFileName(student.name || "certificate")}_certificate.docx`;
+        docxFolder.file(fileName, docxBlob);
       }
 
       if (format === "pdf" || format === "both") {
-        await generatePdfCertificate(student);
+        const pdfBlob = await generatePdfCertificateBlob(student);
+        const fileName = `${sanitizeFileName(student.name || "certificate")}_certificate.pdf`;
+        pdfFolder.file(fileName, pdfBlob);
       }
 
       successCount++;
@@ -250,11 +260,23 @@ async function generateCertificates() {
       await sleep(100);
     }
 
+    // Generate and download ZIP file
+    progressText.textContent = "Creating ZIP file...";
+    const zipBlob = await zip.generateAsync({
+      type: "blob",
+      compression: "DEFLATE",
+      compressionOptions: { level: 6 }
+    });
+
+    // Download ZIP file
+    const timestamp = new Date().toISOString().split('T')[0];
+    saveAs(zipBlob, `certificates_${timestamp}.zip`);
+
     // Show success message
     resultsSection.style.display = "block";
     resultsSummary.textContent = `Successfully generated ${successCount} certificate(s) in ${
       format === "both" ? "Word and PDF" : format.toUpperCase()
-    } format!`;
+    } format! Downloaded as ZIP file.`;
   } catch (error) {
     console.error("Error generating certificates:", error);
     alert(`Error generating certificates: ${error.message}`);
@@ -265,9 +287,9 @@ async function generateCertificates() {
 }
 
 /**
- * Generate DOCX certificate
+ * Generate DOCX certificate and return blob (for ZIP)
  */
-async function generateDocxCertificate(studentData) {
+async function generateDocxCertificateBlob(studentData) {
   try {
     // Read template file
     const content = await templateFile.arrayBuffer();
@@ -287,11 +309,7 @@ async function generateDocxCertificate(studentData) {
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     });
 
-    // Download file
-    const fileName = `${sanitizeFileName(
-      studentData.name || "certificate"
-    )}_certificate.docx`;
-    saveAs(blob, fileName);
+    return blob;
   } catch (error) {
     console.error("Error generating DOCX:", error);
     throw new Error(
@@ -301,10 +319,10 @@ async function generateDocxCertificate(studentData) {
 }
 
 /**
- * Generate PDF certificate
+ * Generate PDF certificate and return blob (for ZIP)
  * Enhanced professional design with elegant styling
  */
-async function generatePdfCertificate(studentData) {
+async function generatePdfCertificateBlob(studentData) {
   try {
     // Create a temporary div to render certificate
     const tempDiv = document.createElement("div");
@@ -543,11 +561,8 @@ async function generatePdfCertificate(studentData) {
 
     pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
-    // Download file
-    const fileName = `${sanitizeFileName(
-      studentData.name || "certificate"
-    )}_certificate.pdf`;
-    pdf.save(fileName);
+    // Return blob instead of downloading
+    return pdf.output("blob");
   } catch (error) {
     console.error("Error generating PDF:", error);
     throw new Error(
