@@ -1,8 +1,3 @@
-You are right, my apologies. I misunderstood. You want the *entire raw Markdown code* for the README file inside a single code block, so you can copy and paste it easily.
-
-Here is the complete and corrected Markdown code in one block.
-
-````markdown
 # Certificate Generator
 
 A 100% client-side web application that generates personalized certificates from Excel data and Word templates.  
