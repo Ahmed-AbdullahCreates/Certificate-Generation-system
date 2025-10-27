@@ -1,9 +1,9 @@
-# Certificate Generator
+# 📜 Certificate Generator
 
 A 100% client-side web application that generates personalized certificates from Excel data and Word templates.  
 No backend server required — everything runs in your browser.
 
-**Live Demo:** [Certificate Generator](https://heroic-bombolone-092ab1.netlify.app/)
+🌐**Live Demo:** [Certificate Generator](https://heroic-bombolone-092ab1.netlify.app/)
 
 ---
 
