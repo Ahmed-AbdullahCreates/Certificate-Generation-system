@@ -239,7 +239,9 @@ async function generateCertificates() {
 
       // Generate PDF certificate
       const pdfBlob = await generatePdfCertificateBlob(student);
-      const fileName = `${sanitizeFileName(student.name || "certificate")}_certificate.pdf`;
+      const fileName = `${sanitizeFileName(
+        student.name || "certificate"
+      )}_certificate.pdf`;
       zip.file(fileName, pdfBlob);
 
       successCount++;
@@ -253,11 +255,11 @@ async function generateCertificates() {
     const zipBlob = await zip.generateAsync({
       type: "blob",
       compression: "DEFLATE",
-      compressionOptions: { level: 6 }
+      compressionOptions: { level: 6 },
     });
 
     // Download ZIP file
-    const timestamp = new Date().toISOString().split('T')[0];
+    const timestamp = new Date().toISOString().split("T")[0];
     saveAs(zipBlob, `certificates_pdf_${timestamp}.zip`);
 
     // Show success message
