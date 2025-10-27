@@ -110,21 +110,6 @@
             <h2>Generate Certificates</h2>
           </div>
 
-          <div class="format-selection">
-            <label>
-              <input type="radio" name="format" value="docx" checked />
-              <span>Word (.docx)</span>
-            </label>
-            <label>
-              <input type="radio" name="format" value="pdf" />
-              <span>PDF (.pdf)</span>
-            </label>
-            <label>
-              <input type="radio" name="format" value="both" />
-              <span>Both formats</span>
-            </label>
-          </div>
-
           <button id="generateBtn" class="generate-btn" disabled>
             <svg
               width="20"
@@ -147,7 +132,7 @@
                 stroke-linecap="round"
               />
             </svg>
-            Generate & Download as ZIP
+            Generate Certificates
           </button>
 
           <div
@@ -185,8 +170,7 @@
               <code>{{course}}</code>
             </li>
             <li>Upload both files above</li>
-            <li>Choose output format (Word, PDF, or both)</li>
-            <li>Click "Generate & Download as ZIP" to download all certificates in a single compressed file</li>
+            <li>Click "Generate & Download as ZIP" to download all PDF certificates in a single compressed file</li>
           </ol>
 
           <div class="example-note">
@@ -199,9 +183,9 @@
           </div>
           
           <div class="example-note" style="margin-top: 16px; border-left-color: #10b981;">
-            <strong>📦 ZIP File Structure:</strong>
+            <strong>📦 ZIP File Download:</strong>
             <p>
-              All certificates will be organized in folders: <code>certificates_docx/</code> for Word files and <code>certificates_pdf/</code> for PDF files.
+              All PDF certificates will be packaged in a single ZIP file for easy downloading and distribution.
             </p>
           </div>
         </section>
