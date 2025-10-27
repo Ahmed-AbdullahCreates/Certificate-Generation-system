@@ -95,7 +95,7 @@ Tip: Design it nicely in Word using fonts, colors, borders, and your institution
 
 Here is an example of the PDF certificate design:
 
-![Sample PDF Certificate](assets/certificate-demo.png)
+![Sample PDF Certificate](certificate-demo.png)
 Generated PDFs feature:
 
   - Professional decorative borders
