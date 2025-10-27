@@ -302,8 +302,7 @@ async function generateDocxCertificate(studentData) {
 
 /**
  * Generate PDF certificate
- * This creates a simple PDF from the data. For better quality, you might want to
- * convert the DOCX to PDF using a service or library that supports proper rendering.
+ * Enhanced professional design with elegant styling
  */
 async function generatePdfCertificate(studentData) {
   try {
@@ -312,36 +311,210 @@ async function generatePdfCertificate(studentData) {
     tempDiv.style.cssText = `
             position: absolute;
             left: -9999px;
-            width: 800px;
-            padding: 60px;
+            width: 1000px;
+            height: 707px;
             background: white;
-            font-family: 'Times New Roman', serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             color: #000;
         `;
 
-    // Create certificate content (simplified version)
+    // Create certificate content with enhanced professional design
     tempDiv.innerHTML = `
-            <div style="border: 8px solid #4f46e5; padding: 40px; text-align: center;">
-                <h1 style="font-size: 48px; margin-bottom: 20px; color: #4f46e5;">Certificate of Achievement</h1>
-                <div style="margin: 40px 0; font-size: 18px; line-height: 1.8;">
-                    <p>This certifies that</p>
-                    <h2 style="font-size: 36px; margin: 20px 0; color: #1f2937;">${
-                      studentData.name || "Student Name"
-                    }</h2>
-                    <p>has successfully completed</p>
-                    <h3 style="font-size: 28px; margin: 20px 0; color: #1f2937;">${
-                      studentData.course || "Course Name"
-                    }</h3>
+            <div style="
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                padding: 50px;
+                box-sizing: border-box;
+                position: relative;
+            ">
+                <!-- Decorative corner borders -->
+                <div style="
+                    position: absolute;
+                    top: 30px;
+                    left: 30px;
+                    width: 80px;
+                    height: 80px;
+                    border-top: 4px solid #2c5aa0;
+                    border-left: 4px solid #2c5aa0;
+                "></div>
+                <div style="
+                    position: absolute;
+                    top: 30px;
+                    right: 30px;
+                    width: 80px;
+                    height: 80px;
+                    border-top: 4px solid #2c5aa0;
+                    border-right: 4px solid #2c5aa0;
+                "></div>
+                <div style="
+                    position: absolute;
+                    bottom: 30px;
+                    left: 30px;
+                    width: 80px;
+                    height: 80px;
+                    border-bottom: 4px solid #2c5aa0;
+                    border-left: 4px solid #2c5aa0;
+                "></div>
+                <div style="
+                    position: absolute;
+                    bottom: 30px;
+                    right: 30px;
+                    width: 80px;
+                    height: 80px;
+                    border-bottom: 4px solid #2c5aa0;
+                    border-right: 4px solid #2c5aa0;
+                "></div>
+                
+                <!-- Main content border -->
+                <div style="
+                    border: 3px double #2c5aa0;
+                    padding: 40px;
+                    height: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    background: white;
+                ">
+                    <!-- Top decorative line -->
+                    <div style="
+                        width: 150px;
+                        height: 3px;
+                        background: linear-gradient(90deg, transparent, #c9a961, transparent);
+                        margin: 0 auto 20px auto;
+                    "></div>
+                    
+                    <!-- Title -->
+                    <h1 style="
+                        font-size: 52px;
+                        font-weight: 700;
+                        color: #2c5aa0;
+                        margin: 0 0 10px 0;
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        font-family: 'Georgia', serif;
+                    ">Certificate</h1>
+                    
+                    <p style="
+                        font-size: 20px;
+                        color: #666;
+                        margin: 0 0 30px 0;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        font-weight: 400;
+                    ">of Achievement</p>
+                    
+                    <!-- Divider -->
+                    <div style="
+                        width: 100px;
+                        height: 2px;
+                        background: #c9a961;
+                        margin: 0 auto 30px auto;
+                    "></div>
+                    
+                    <!-- Content -->
+                    <p style="
+                        font-size: 16px;
+                        color: #444;
+                        margin: 0 0 20px 0;
+                        font-style: italic;
+                    ">This is to certify that</p>
+                    
+                    <h2 style="
+                        font-size: 42px;
+                        font-weight: 700;
+                        color: #1a1a1a;
+                        margin: 0 0 30px 0;
+                        font-family: 'Georgia', serif;
+                        border-bottom: 2px solid #c9a961;
+                        display: inline-block;
+                        padding: 0 40px 10px 40px;
+                    ">${studentData.name || "Student Name"}</h2>
+                    
+                    <p style="
+                        font-size: 16px;
+                        color: #444;
+                        margin: 0 0 15px 0;
+                    ">has successfully completed the course</p>
+                    
+                    <h3 style="
+                        font-size: 28px;
+                        font-weight: 600;
+                        color: #2c5aa0;
+                        margin: 0 0 25px 0;
+                        font-family: 'Georgia', serif;
+                    ">${studentData.course || "Course Name"}</h3>
+                    
                     ${
                       studentData.grade
-                        ? `<p>with a grade of <strong>${studentData.grade}</strong></p>`
+                        ? `<p style="
+                            font-size: 18px;
+                            color: #444;
+                            margin: 0 0 20px 0;
+                        ">with a grade of <span style="
+                            font-weight: 700;
+                            color: #2c5aa0;
+                            font-size: 22px;
+                        ">${studentData.grade}</span></p>`
                         : ""
                     }
-                    ${
-                      studentData.date
-                        ? `<p style="margin-top: 30px;">Date: ${studentData.date}</p>`
-                        : ""
-                    }
+                    
+                    <!-- Bottom decorative line -->
+                    <div style="
+                        width: 150px;
+                        height: 3px;
+                        background: linear-gradient(90deg, transparent, #c9a961, transparent);
+                        margin: 25px auto 20px auto;
+                    "></div>
+                    
+                    <!-- Date and signature section -->
+                    <div style="
+                        display: flex;
+                        justify-content: space-around;
+                        margin-top: 30px;
+                        padding: 0 60px;
+                    ">
+                        <div style="text-align: center;">
+                            <div style="
+                                width: 200px;
+                                border-top: 2px solid #333;
+                                margin-bottom: 8px;
+                            "></div>
+                            <p style="
+                                font-size: 12px;
+                                color: #666;
+                                margin: 0;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                            ">Date</p>
+                            ${
+                              studentData.date
+                                ? `<p style="
+                                    font-size: 14px;
+                                    color: #333;
+                                    margin: 5px 0 0 0;
+                                    font-weight: 600;
+                                ">${studentData.date}</p>`
+                                : ""
+                            }
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="
+                                width: 200px;
+                                border-top: 2px solid #333;
+                                margin-bottom: 8px;
+                            "></div>
+                            <p style="
+                                font-size: 12px;
+                                color: #666;
+                                margin: 0;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                            ">Authorized Signature</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
