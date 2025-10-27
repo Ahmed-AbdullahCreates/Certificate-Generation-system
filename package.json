@@ -1,0 +1,32 @@
+{
+  "name": "certificate-generator",
+  "version": "1.0.0",
+  "description": "Client-side certificate generator from Excel data and Word templates",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "certificate",
+    "generator",
+    "excel",
+    "docx",
+    "pdf",
+    "client-side"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "docxtemplater": "^3.49.3",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "pizzip": "^3.1.7",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
