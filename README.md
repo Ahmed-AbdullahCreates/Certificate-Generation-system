@@ -84,27 +84,13 @@ Visit `http://localhost:5173`### Step 1: Prepare Your Excel File
 
 ### Step 1: Prepare Excel File| name          | course           | grade | date       |
 
-|---------------|------------------|-------|------------|
-
-Create an Excel file with your data:| John Doe      | Web Development  | A+    | 2025-10-27 |
-
-| Jane Smith    | Data Science     | A     | 2025-10-27 |
-
-| name | course | grade | date || Bob Johnson   | Machine Learning | B+    | 2025-10-27 |
-
-|------|--------|-------|------|
-
-| John Doe | Web Development | A+ | 2025-10-27 |**Important**: The column headers will be used as placeholder names in your template.
-
-| Jane Smith | Data Science | A | 2025-10-27 |
-
 ### Step 2: Create Your Word Template
 
 **Important:** Column headers will be used as placeholder names.
 
 Create a Word document (.docx) with placeholders using double curly braces:
 
-### Step 2: Create Word Template
+### Step 3: Create Word Template
 
 ```
 
@@ -290,10 +276,6 @@ _____________________
 
 
 
-## 🔧 Development## 🤝 Contributing
-
-
-
 ### CommandsContributions are welcome! Feel free to:
 
 - Report bugs
@@ -304,7 +286,9 @@ npm run dev      # Start development server- Submit pull requests
 
 npm run build    # Build for production
 
-npm run preview  # Preview production build## 💡 Tips
+npm run preview  # Preview production build##
+
+💡 Tips
 
 ```
 
@@ -336,8 +320,3 @@ Contributions welcome! Feel free to:
 
 MIT License - Free to use for any purpose!
 
----
-
-**Built with ❤️ for easy certificate generation**
-
-Questions? Open an issue or check the [examples](./examples) folder.
