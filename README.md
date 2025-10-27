@@ -189,10 +189,5 @@ Contributions are welcome! Feel free to:
 3. **Use consistent naming**: Column headers should be simple (no spaces or special characters work best)
 4. **Browser compatibility**: Works best in modern browsers (Chrome, Firefox, Edge)
 
-## 📞 Support
 
-If you encounter any issues or have questions, please open an issue on the project repository.
 
----
-
-**Built with ❤️ using vanilla JavaScript - No backend required!**

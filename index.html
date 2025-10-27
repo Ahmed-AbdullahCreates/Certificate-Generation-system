@@ -1,125 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Certificate Generator - Client-Side</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>📜 Certificate Generator</h1>
-            <p class="subtitle">Generate personalized certificates from Excel data - No server required!</p>
-        </header>
+      <header>
+        <h1>📜 Certificate Generator</h1>
+        <p class="subtitle">
+          Generate personalized certificates from Excel data - No server
+          required!
+        </p>
+      </header>
 
-        <main>
-            <!-- Step 1: Upload Excel File -->
-            <section class="card">
-                <div class="step-header">
-                    <span class="step-number">1</span>
-                    <h2>Upload Student Data (Excel)</h2>
-                </div>
-                <div class="upload-area">
-                    <input type="file" id="excelFile" accept=".xlsx,.xls" class="file-input">
-                    <label for="excelFile" class="file-label">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5L20 25M20 25L12 17M20 25L28 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 30L6 32C6 34.2091 7.79086 36 10 36L30 36C32.2091 36 34 34.2091 34 32V30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span>Choose Excel File</span>
-                        <span class="file-info">Supports .xlsx and .xls formats</span>
-                    </label>
-                </div>
-                <div id="excelPreview" class="preview-section"></div>
-            </section>
+      <main>
+        <!-- Step 1: Upload Excel File -->
+        <section class="card">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h2>Upload Student Data (Excel)</h2>
+          </div>
+          <div class="upload-area">
+            <input
+              type="file"
+              id="excelFile"
+              accept=".xlsx,.xls"
+              class="file-input"
+            />
+            <label for="excelFile" class="file-label">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 5L20 25M20 25L12 17M20 25L28 17"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 30L6 32C6 34.2091 7.79086 36 10 36L30 36C32.2091 36 34 34.2091 34 32V30"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>Choose Excel File</span>
+              <span class="file-info">Supports .xlsx and .xls formats</span>
+            </label>
+          </div>
+          <div id="excelPreview" class="preview-section"></div>
+        </section>
 
-            <!-- Step 2: Upload Template -->
-            <section class="card">
-                <div class="step-header">
-                    <span class="step-number">2</span>
-                    <h2>Upload Certificate Template (Word)</h2>
-                </div>
-                <div class="upload-area">
-                    <input type="file" id="templateFile" accept=".docx" class="file-input">
-                    <label for="templateFile" class="file-label">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5L20 25M20 25L12 17M20 25L28 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 30L6 32C6 34.2091 7.79086 36 10 36L30 36C32.2091 36 34 34.2091 34 32V30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <span>Choose DOCX Template</span>
-                        <span class="file-info">Use {{placeholder}} for dynamic data</span>
-                    </label>
-                </div>
-                <div id="templatePreview" class="preview-section"></div>
-            </section>
+        <!-- Step 2: Upload Template -->
+        <section class="card">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h2>Upload Certificate Template (Word)</h2>
+          </div>
+          <div class="upload-area">
+            <input
+              type="file"
+              id="templateFile"
+              accept=".docx"
+              class="file-input"
+            />
+            <label for="templateFile" class="file-label">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 5L20 25M20 25L12 17M20 25L28 17"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M6 30L6 32C6 34.2091 7.79086 36 10 36L30 36C32.2091 36 34 34.2091 34 32V30"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>Choose DOCX Template</span>
+              <span class="file-info"
+                >Use {{placeholder}} for dynamic data</span
+              >
+            </label>
+          </div>
+          <div id="templatePreview" class="preview-section"></div>
+        </section>
 
-            <!-- Step 3: Generate Certificates -->
-            <section class="card action-section">
-                <div class="step-header">
-                    <span class="step-number">3</span>
-                    <h2>Generate Certificates</h2>
-                </div>
-                
-                <div class="format-selection">
-                    <label>
-                        <input type="radio" name="format" value="docx" checked>
-                        <span>Word (.docx)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="format" value="pdf">
-                        <span>PDF (.pdf)</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="format" value="both">
-                        <span>Both formats</span>
-                    </label>
-                </div>
+        <!-- Step 3: Generate Certificates -->
+        <section class="card action-section">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h2>Generate Certificates</h2>
+          </div>
 
-                <button id="generateBtn" class="generate-btn" disabled>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 2L10 12M10 12L6 8M10 12L14 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 15L3 16C3 17.1046 3.89543 18 5 18L15 18C16.1046 18 17 17.1046 17 16V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    Generate Certificates
-                </button>
+          <div class="format-selection">
+            <label>
+              <input type="radio" name="format" value="docx" checked />
+              <span>Word (.docx)</span>
+            </label>
+            <label>
+              <input type="radio" name="format" value="pdf" />
+              <span>PDF (.pdf)</span>
+            </label>
+            <label>
+              <input type="radio" name="format" value="both" />
+              <span>Both formats</span>
+            </label>
+          </div>
 
-                <div id="progressSection" class="progress-section" style="display: none;">
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill"></div>
-                    </div>
-                    <p id="progressText" class="progress-text">Processing...</p>
-                </div>
+          <button id="generateBtn" class="generate-btn" disabled>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2L10 12M10 12L6 8M10 12L14 8"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 15L3 16C3 17.1046 3.89543 18 5 18L15 18C16.1046 18 17 17.1046 17 16V15"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            Generate Certificates
+          </button>
 
-                <div id="resultsSection" class="results-section" style="display: none;">
-                    <h3>✅ Generation Complete!</h3>
-                    <p id="resultsSummary"></p>
-                </div>
-            </section>
+          <div
+            id="progressSection"
+            class="progress-section"
+            style="display: none"
+          >
+            <div class="progress-bar">
+              <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p id="progressText" class="progress-text">Processing...</p>
+          </div>
 
-            <!-- Instructions -->
-            <section class="card instructions">
-                <h3>📖 How to Use</h3>
-                <ol>
-                    <li>Prepare your Excel file with student data (columns: name, grade, course, date, etc.)</li>
-                    <li>Create a Word template with placeholders like <code>{{name}}</code>, <code>{{grade}}</code>, <code>{{course}}</code></li>
-                    <li>Upload both files above</li>
-                    <li>Choose output format (Word, PDF, or both)</li>
-                    <li>Click "Generate Certificates" to download all certificates</li>
-                </ol>
-                
-                <div class="example-note">
-                    <strong>💡 Example Template Placeholders:</strong>
-                    <p>This certifies that <code>{{name}}</code> has successfully completed <code>{{course}}</code> with a grade of <code>{{grade}}</code> on <code>{{date}}</code>.</p>
-                </div>
-            </section>
-        </main>
+          <div
+            id="resultsSection"
+            class="results-section"
+            style="display: none"
+          >
+            <h3>✅ Generation Complete!</h3>
+            <p id="resultsSummary"></p>
+          </div>
+        </section>
 
-        <footer>
-            <p>Built with ❤️ using vanilla JavaScript • 100% Client-Side • No Server Required</p>
-        </footer>
+        <!-- Instructions -->
+        <section class="card instructions">
+          <h3>📖 How to Use</h3>
+          <ol>
+            <li>
+              Prepare your Excel file with student data (columns: name, grade,
+              course, date, etc.)
+            </li>
+            <li>
+              Create a Word template with placeholders like
+              <code>{{name}}</code>, <code>{{grade}}</code>,
+              <code>{{course}}</code>
+            </li>
+            <li>Upload both files above</li>
+            <li>Choose output format (Word, PDF, or both)</li>
+            <li>Click "Generate Certificates" to download all certificates</li>
+          </ol>
+
+          <div class="example-note">
+            <strong>💡 Example Template Placeholders:</strong>
+            <p>
+              This certifies that <code>{{name}}</code> has successfully
+              completed <code>{{course}}</code> with a grade of
+              <code>{{grade}}</code> on <code>{{date}}</code>.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+         
+        </p>
+      </footer>
     </div>
 
     <script type="module" src="app.js"></script>
-</body>
+  </body>
 </html>
