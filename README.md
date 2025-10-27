@@ -167,7 +167,6 @@ npm run build
 This creates a `dist/` folder with optimized files. Deploy these files to any static hosting service:
 - GitHub Pages
 - Netlify
-- Vercel
 - AWS S3
 - Any web server
 
